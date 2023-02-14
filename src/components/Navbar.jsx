@@ -16,7 +16,7 @@ const Navbar = ({ setQuery }) => {
                 <AiOutlineMenu className="text-2xl ml-2" />
                 <AiFillYoutube className="text-5xl ml-2 text-red-500" />
                 <h1 className="text-2xl font-bold ml-2">
-                    <a href="index.html">Yovtube</a>
+                    <a href="index.html">YovTube</a>
                 </h1>
             </div>
 
