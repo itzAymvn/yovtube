@@ -11,6 +11,7 @@ const App = () => {
     // States
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
+    const [disclaimer, setDisclaimer] = useState(true);
 
     // Function to transform data from API to our desired format
     const transformVideoData = (data) => {
@@ -84,6 +85,33 @@ const App = () => {
                 <Sidebar />
                 <Content videos={results} />
             </main>
+            {
+                // Disclaimer
+                disclaimer && (
+                    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white flex flex-row items-center justify-between p-3">
+                        <p className="text-lg font-bold">
+                            This website is not affiliated with{" "}
+                            <a
+                                class="text-red-500 hover:text-red-400"
+                                href="https://youtube.com">
+                                YouTube
+                            </a>{" "}
+                            in any way. All the data is fetched from the{" "}
+                            <a
+                                class="text-red-500 hover:text-red-400"
+                                href="https://developers.google.com/youtube/v3">
+                                YouTube API
+                            </a>
+                            . This website is only for educational purposes.
+                        </p>
+                        <button
+                            onClick={() => setDisclaimer(false)}
+                            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                            Dismiss
+                        </button>
+                    </div>
+                )
+            }
         </>
     );
 };
