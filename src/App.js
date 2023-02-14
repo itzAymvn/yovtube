@@ -45,7 +45,7 @@ const App = () => {
     // Fetching Trending Videos on page load
     useEffect(() => {
         async function getTrendingVideos() {
-            const countryCode = await getCountryCode();
+            const countryCode = (await getCountryCode()) || "US";
             const apibase = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&maxResults=100&regionCode=${countryCode}&key=${API_KEY}`;
             const response = await fetch(apibase);
             const data = await response.json();
